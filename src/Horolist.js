@@ -32,4 +32,3 @@ const Horolist = props => {
 
 
 
-export default Horolist; 

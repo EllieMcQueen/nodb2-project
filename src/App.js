@@ -27,9 +27,10 @@ class App extends Component {
    .catch(err => console.log(err));
    }
 
-   catchHoro (Horo) {
+   catchHoro (horo) {
      axios.post('/api/saved-horo', {horo: horo})
      .then(res => {
+       this.setState({savedHoro: res.data})
      })
      .catch(err => console.log(err));
    }

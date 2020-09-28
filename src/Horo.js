@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 
 class Horo extends Component {
-    const(props){
+    constructor(props){
         super(props);
         this.state = {
             isEditing: false,
