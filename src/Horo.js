@@ -22,7 +22,7 @@ class Horo extends Component {
     }
 render(){
     return (
-        <div>
+        <div className="Horo">
             <img src={this.props.horo.image} alt={this.props.horo.name}/>
             {this.state.isEditing
             ? ( 

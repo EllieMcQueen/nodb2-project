@@ -6,36 +6,47 @@ import axios from 'axios';
 import './App.css';
 import Individual from './Individual';
 
+
 class Sections extends Component {
     constructor(props){
         super(props);
         this.state = {
-            horoChoice: []
+            signs: []
         }   
-    }
-      
+    }      
     
     componentDidMount(){
-        this.gethoroChoice();
+        this.getSigns();
     }
-    gethoroChoice = () => {
-        axios.get('/api/horoChoice')
+
+    getSigns = () => {
+        axios.get('/api/signs') 
         .then(res => {
-            this.setState({horoChoice: res.data})
+            this.setState({signs: res.data})
+            console.log('line 26 checking STATE',this.state)
+        })
+        .catch(err => console.log(err))
+}
+
+    gethoroChoice = () => {
+        axios.get(`http://ohmanda.com/api/horoscope/aquarius`) 
+        .then(res => {
+            console.log(res.data); 
         })
         .catch(err => console.log(err))
     }
+
     render() {
-        const mappedHoroscope = this.state.horoChoice.map((horoscope, i) => (
+        const signList = this.state.signs.map((sign) => (
             <Individual
-                key={i}
-                horoscope={horoscope}
+                key={sign.id}
+                sign={sign}
                 catchFn={this.props.catchFn}
                 refreshFn={this.gethoroChoice}/>            
         ))
         return (
             <div className='horo-flex'>
-                {mappedHoroscope}
+                {signList}
             </div>        
         )
     }

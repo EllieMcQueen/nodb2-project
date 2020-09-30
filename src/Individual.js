@@ -13,24 +13,25 @@ class Individual extends Component {
             mood: ''
         }
     }
+
     handleCatch = () => {
-        const {horoscope} = this.props;
+        const {sign} = this.props;
         let newHoro = {
-            name: horoscope.name,
-            image: horoscope.sprites.front_default
+            name: sign.name,
+            //image: horoscope.sprites.front_default
             }
 
          this.props.catchFn(newHoro);
          this.props.refreshFn(); 
-    
- }
+    }
 
  render(){
     
  return (
-     <div onClick={this.handleCatch}>
-         <img src={this.props.horoscope.sprites.front_default} alt={this.props.horoscope.name}/>
-                <p>{this.props.horoscope.name}</p>
+     
+     <div className="Individual" onClick={this.handleCatch}> 
+        {this.props.sign.sign}
+        {/* //<img src={this.props.horoscope.sprites.front_default} alt={this.props.horoscope.name}/> */}
      </div>
  )
  }

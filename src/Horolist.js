@@ -19,7 +19,6 @@ const Horolist = props => {
 
    return(
        <div>
-           <h1>Horolist</h1>
            <div ClassName='horo-flex'>
                {mappedHoro}
            </div>
