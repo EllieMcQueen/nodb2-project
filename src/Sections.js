@@ -28,21 +28,14 @@ class Sections extends Component {
         .catch(err => console.log(err))
 }
 
-    gethoroChoice = () => {
-        axios.get(`http://ohmanda.com/api/horoscope/aquarius`) 
-        .then(res => {
-            console.log(res.data); 
-        })
-        .catch(err => console.log(err))
-    }
+    
 
     render() {
         const signList = this.state.signs.map((sign) => (
             <Individual
                 key={sign.id}
                 sign={sign}
-                catchFn={this.props.catchFn}
-                refreshFn={this.gethoroChoice}/>            
+                catchFn={this.props.catchFn}/>            
         ))
         return (
             <div className='horo-flex'>

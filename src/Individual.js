@@ -10,8 +10,16 @@ class Individual extends Component {
     constructor(props){
         super(props);
         this.state = {
-            mood: ''
+            mood: '',
+            sign:{}
         }
+    }
+    getHoro = (sign) => {
+        axios.get(`/api/horo/${sign.toLowerCase()}`) 
+        .then(res => {
+            this.setState({sign: res.data})
+        })
+        .catch(err => console.log(err))
     }
 
     handleCatch = () => {
@@ -26,12 +34,19 @@ class Individual extends Component {
     }
 
  render(){
-    
+    console.log(this.state)
+
+    let horoscope = <p>Pick Me</p>
+
  return (
-     
-     <div className="Individual" onClick={this.handleCatch}> 
-        {this.props.sign.sign}
-        {/* //<img src={this.props.horoscope.sprites.front_default} alt={this.props.horoscope.name}/> */}
+     <div>   
+        <div className="Individual" onClick={()=> this.getHoro(this.props.sign.sign)}> 
+            {this.props.sign.sign}
+             {/* //<img src={this.props.horoscope.sprites.front_default} alt={this.props.horoscope.name}/> */}
+        </div>
+        <div>
+            {horoscope}
+        </div>
      </div>
  )
  }

@@ -1,7 +1,18 @@
+const axios = require('axios')
 const savedHoro = []
 let id = 1;
 
 module.exports = {
+    getNewHoro: (req, res) => {
+        const {sign} = req.params;
+        console.log(sign)
+        axios.get(`http://ohmanda.com/api/horoscope/${sign}`) 
+        .then(Response => {
+            res.status(200).send(Response.data) 
+        })
+        .catch(err => console.log(err))
+        
+    },
     getSavedHoro: (req, res) => {
         res.status(200).send(savedHoro);
     },
