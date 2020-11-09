@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../src/Components/Header/Header";
+import Footer from "../src/Components/Footer/Footer";
 import axios from "axios";
-import Horolist from "./Horolist";
-import "./App.css";
-import Sections from "./Sections";
+import Horolist from "../src/Components/Horolist/Horolist";
+import '../src/app.css';
+import Sections from "../src/Components/Sections/Sections";
 
 //  Stateful {savedHoros[]}, passes down to Horolist}
 // componentDidMount, axios to get saved horos & update this.state.saveHoros
@@ -67,7 +67,9 @@ class App extends Component {
           nameFn={this.editMood}
           releaseFn={this.releaseHoro}
         />
+        
         <Footer />
+       
       </div>
     );
   }

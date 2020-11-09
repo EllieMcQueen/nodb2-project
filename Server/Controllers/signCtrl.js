@@ -12,7 +12,8 @@ module.exports = {
         } else {
             const newSign = {
                 id,
-                sign
+                sign,
+                img,
             };
             signs.push(newSign);
             id++;

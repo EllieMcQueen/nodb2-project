@@ -5,7 +5,7 @@
 //method to delete saved horo, send res.data to App
 
 import React, {Component} from 'react';
-import Horo from './Horo';
+import Horo from '../Horo/Horo';
 
 const Horolist = props => {
    const mappedHoro = props.savedHoro.map((horo, i) => (
